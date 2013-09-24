@@ -1,0 +1,93 @@
+*, html {
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+	font-family: arial;
+}
+
+a, a:link {
+	color: #FFF;
+	text-decoration: none;
+}
+
+h1 {
+	font-size: 26px;
+	font-weight: normal;
+	text-align: center;
+	margin: 15px 0;
+}
+
+header {
+	background-color: #1373a5;
+}
+
+header > h1 {
+	font-size: 16px;
+	color: #FFF;
+	margin: 0;
+	padding: 10px 0;
+}
+
+article.content > section {
+	display: none;
+	margin: 10px;
+}
+
+article.content > section.active {
+	display: block;
+}
+
+table {
+	width: 100%;
+	border-collapse: collapse;
+}
+
+thead {
+	text-align: left;
+}
+
+tr {
+	height: 40px;
+}
+
+tr:nth-of-type(2n) {
+	background-color: #e9eaeb;
+}
+
+th {
+	background-color: #d2d5d6;
+}
+
+th, td {
+	padding: 0 15px 0 15px;
+}
+
+nav {
+	width: 100%;
+	background-color: #3aa4d6;
+ 	height: 50px;
+}
+
+nav ul {
+	height: 50px;
+}
+
+nav ul li {
+	display: inline-block;
+	width: 33.3%;
+	height: 50px;
+	margin: 0 -5px 0 0;
+}
+
+nav ul li a {
+	padding: 15px 0 0 0;
+	width: 100%;
+	text-align: center;
+	display: block;
+	height: 50px;
+	-webkit-box-shadow: inset 1px 0px 1px rgba(0, 0, 0, 0.3);
+    box-shadow: inset 1px 0px 1px rgba(0, 0, 0, 0.3);
+    -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
