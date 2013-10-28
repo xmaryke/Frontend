@@ -6,11 +6,11 @@ var SCOREAPP = SCOREAPP || {};
 
 	SCOREAPP.settings = {
 
-		gameScoreUrl: "https://api.leaguevine.com/v1/game_scores/",
+		GAME_URL: "https://api.leaguevine.com/v1/game_scores/",
 
-		rankingUrl: "https://api.leaguevine.com/v1/pools/?tournament_id=19389&access_token=82996312dc",
+		RANKING_URL: "https://api.leaguevine.com/v1/pools/?tournament_id=19389&access_token=82996312dc",
 
-		scheduleUrl: "https://api.leaguevine.com/v1/games/?tournament_id=19389&pool_id=19222&access_token=73ab4c160e"
+		SCHEDULE_URL: "https://api.leaguevine.com/v1/games/?tournament_id=19389&pool_id=19222&access_token=73ab4c160e"
 
 	}
 
@@ -18,13 +18,13 @@ var SCOREAPP = SCOREAPP || {};
 
 		postGameData: function(form) {
 			var gamePostForm = qwery('#gamePostForm')[0];
-			var team1ScoreInputField = qwery('#gamePostForm [name=team1score]')[0];
-			var team2ScoreInputField = qwery('#gamePostForm [name=team2score]')[0];
-			var isFinalInputField = qwery('#gamePostForm [name=isfinal]')[0];
+			var team1ScoreInput = qwery('#gamePostForm [name=team1score]')[0];
+			var team2ScoreInput = qwery('#gamePostForm [name=team2score]')[0];
+			var isFinalInput = qwery('#gamePostForm [name=isfinal]')[0];
 			var json = {
 				game_id: "129763",
-				team_1_score: team1ScoreInputField.value,
-				team_2_score: team2ScoreInputField.value,
+				team_1_score: team1ScoreInput.value,
+				team_2_score: team2ScoreInput.value,
 				is_final: 'False'
 			}
 
@@ -33,7 +33,12 @@ var SCOREAPP = SCOREAPP || {};
 				'Content-type':'application/json',
 				'Authorization':'bearer a6abfe991a'
 			};
-			site.post(headers, json, console.log('gelukt!'));
+			site.post(headers, json, function (error, result) {
+            if (!error) {
+                console.log("Posten is gelukt");
+            } else {
+                console.warn(error); // Laat zien wat er fout gaat
+            });
 
 			return false; //return false is zodat de pagina niet opnieuw wordt geladen
 		},
