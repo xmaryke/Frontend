@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="UTF-8">
+    <title>Score App by Rowan Blokdijk</title>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+
+    <header>
+        <h1>Tournament: Amsterdam Ultimate Autumn</h1>
+        <nav>
+            <ul>
+                <li><a href="#/ranking">Ranking</a></li>
+                <li><a href="#/schedule">Schedule</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="loader"></div>
+    
+    <section class="content">
+
+        <article data-route="game" class="active">
+
+            <form id="gamePostForm" method="post" action="">
+                <label for="team1score">Team 1 score</label>
+                <input type="text" name="team1score">
+                <label for="team2score">Team 2 score</label>
+                <input type="text" name="team2score">
+                <input type="submit" value="Send message">
+            </form>
+
+        </article>
+
+        <article data-route="ranking">
+
+            <h1>Pool <span data-bind="name"></span></h1>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Team</th>
+                        <th>Games played</th>
+                        <th>Losses</th>
+                        <th>Plus minus</th>
+                        <th>Points allowed</th>
+                        <th>Points scored</th>
+                        <th>Wins</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="standings">
+                    <tr>
+                        <td data-bind="team">Team <span data-bind="name"></span></td>
+                        <td data-bind="games_played"></td>
+                        <td data-bind="losses"></td>
+                        <td data-bind="plus_minus"></td>
+                        <td data-bind="points_allowed"></td>
+                        <td data-bind="points_scored"></td>
+                        <td data-bind="wins"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </article>
+
+        <article data-route="schedule">
+
+            <h1>Pool B</h1>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Team</th>
+                        <th>Result</th>
+                        <th>Team</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="objects">
+                    <tr>
+                        <td data-bind="start_time"></td>
+                        <td data-bind="team_1">Team <span data-bind="name"></span></td>
+                        <td><span data-bind="team_1_score"></span> - <span data-bind="team_2_score"></span></td>
+                        <td data-bind="team_2">Team <span data-bind="name"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </article>
+
+    </section>
+
+    <!-- Routie -->
+    <script src="js/lib/routie.js"></script>
+    <!-- DOM ready -->
+    <script src="js/lib/ready.min.js" type="text/javascript"></script>
+    <!-- Qwery -->
+    <script src="js/lib/qwery.min.js" type="text/javascript"></script>
+    <!-- Transparancy -->
+    <script src="js/lib/transparancy.min.js" type="text/javascript"></script>
+    <!-- Fermata -->
+    <script src="js/lib/fermata.js"></script>
+    <!-- Spin -->
+    <script src="js/lib/spin.js"></script>
+    <!-- Application script -->
+    <script src="js/scoreapp.js"></script>
+    
+</body>
+</html>
